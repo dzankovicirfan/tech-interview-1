@@ -9,12 +9,12 @@ a = {
 }
 
 
-def print_depth(data):
+def print_depth(data, depth=1):
     for key, value in data.items():
+        print(key, depth)
         if type(value) is dict:
-            print_depth(value)
-        else:
-            print(key, value)
+            depth += 1
+            print_depth(value, depth)
 
 
 print_depth(a)
